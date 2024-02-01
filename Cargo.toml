@@ -1,0 +1,18 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/rollup",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+authors = ["kobakaku"]
+
+[workspace.dependencies]
+serde = { version = "1.0.192", features = ["derive", "rc"] }
+serde_json = { version = "1.0" }
+anyhow = "1.0.68"
+clap = { version = "4.4.10", features = ["derive"] }
+tracing = "0.1.40"
+tracing-subscriber = "0.3"
