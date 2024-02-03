@@ -72,7 +72,7 @@ impl RollupBlueprint for MockRollup {
         // TODO set the sequencer address
         let sequencer = Address::new([0; 32]);
 
-        let mut rpc_methods = sov_modules_rollup_blueprint::register_rpc::<
+        let rpc_methods = sov_modules_rollup_blueprint::register_rpc::<
             Self::NativeRuntime,
             Self::NativeContext,
             Self::DaService,
@@ -94,7 +94,7 @@ impl RollupBlueprint for MockRollup {
         &self,
         prover_config: RollupProverConfig,
         rollup_config: &RollupConfig<Self::DaConfig>,
-        da_service: &Self::DaService,
+        _da_service: &Self::DaService,
     ) -> Self::ProverService {
         let vm = Risc0Host::new(risc0_starter::MOCK_DA_ELF);
         let zk_stf = StfBlueprint::new();
@@ -118,7 +118,7 @@ impl RollupBlueprint for MockRollup {
         rollup_config: &RollupConfig<Self::DaConfig>,
     ) -> Result<Self::StorageManager, anyhow::Error> {
         let storage_config = StorageConfig {
-            path: rollup_config.storage.path,
+            path: rollup_config.storage.path.clone(),
         };
         ProverStorageManager::new(storage_config)
     }

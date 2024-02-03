@@ -1,4 +1,3 @@
-use anyhow::Error;
 use tracing::info;
 
 use sov_modules_rollup_blueprint::Rollup;
@@ -16,8 +15,8 @@ async fn main() -> Result<(), anyhow::Error> {
 }
 
 #[cfg(feature = "mock_da")]
-async fn new_rollup() -> Result<Rollup<MockRollup>, anyhow::Error> {
-    let mock_rollup = MockRollup {};
+async fn _new_rollup() -> Result<Rollup<MockRollup>, anyhow::Error> {
+    let _mock_rollup = MockRollup {};
 
     todo!();
 }

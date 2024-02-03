@@ -1,1 +1,2 @@
 /target/
+/crates/provers/risc0/guest-mock/target

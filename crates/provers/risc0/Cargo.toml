@@ -3,7 +3,9 @@ name = "risc0-starter"
 resolver = "2"
 version = { workspace = true }
 edition = { workspace = true }
-authors = { workspace = true }
 
-[dependencies]
+[build-dependencies]
 risc0-build = { workspace = true }
+
+[package.metadata.risc0]
+methods = ["guest-mock"]
