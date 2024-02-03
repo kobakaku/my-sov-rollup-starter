@@ -10,9 +10,41 @@ edition = "2021"
 authors = ["kobakaku"]
 
 [workspace.dependencies]
+# Adapters
+sov-mock-da = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-risc0-adapter = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+# Full Node
+sov-prover-storage-manager = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-stf-runner = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-db = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-sequencer = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+# Module System
+sov-modules-rollup-blueprint = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-modules-api = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-state = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-modules-stf-blueprint = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-accounts = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-bank = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-sequencer-registry = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+# Rollup Interface
+sov-rollup-interface = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+
 serde = { version = "1.0.192", features = ["derive", "rc"] }
 serde_json = { version = "1.0" }
 anyhow = "1.0.68"
 clap = { version = "4.4.10", features = ["derive"] }
 tracing = "0.1.40"
 tracing-subscriber = "0.3"
+tokio = { version = "1", features = ["full"] }
+async-trait = "0.1.71"
+jsonrpsee = { version = "0.20.1", features = ["jsonrpsee-types"] }
+borsh = { version = "0.10.3", features = ["rc", "bytes"] }
+
+risc0-build = "0.19"
+
+[patch.crates-io]
+# To apply the v0.19 build script downlaod issue hotfix.
+risc0-circuit-recursion = { git = "https://github.com/neysofu/risc0-hotfixes", rev = "v0.19.2-hotfix" }
+risc0-zkvm = { git = "https://github.com/neysofu/risc0-hotfixes", rev = "v0.19.2-hotfix" }
+risc0-zkvm-platform = { git = "https://github.com/neysofu/risc0-hotfixes", rev = "v0.19.2-hotfix" }
+risc0-circuit-rv32im = { git = "https://github.com/neysofu/risc0-hotfixes", rev = "v0.19.2-hotfix" }

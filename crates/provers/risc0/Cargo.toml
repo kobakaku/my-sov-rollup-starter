@@ -1,0 +1,9 @@
+[package]
+name = "risc0-starter"
+resolver = "2"
+version = { workspace = true }
+edition = { workspace = true }
+authors = { workspace = true }
+
+[dependencies]
+risc0-build = { workspace = true }
