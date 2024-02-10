@@ -3,7 +3,7 @@ use sov_accounts::AccountConfig;
 use sov_bank::BankConfig;
 use sov_sequencer_registry::SequencerConfig;
 use sov_stf_runner::read_json_file;
-use std::path::PathBuf;
+use std::path::{Path, PathBuf};
 
 use sov_modules_api::{Context, DaSpec};
 use sov_modules_stf_blueprint::Runtime as RuntimeTrait;
@@ -18,6 +18,16 @@ pub struct GenesisPaths {
     pub bank_genesis_path: PathBuf,
     /// Sequencer Registry genesis path.
     pub sequencer_genesis_path: PathBuf,
+}
+
+impl GenesisPaths {
+    pub fn from_dir(dir: impl AsRef<Path>) -> Self {
+        Self {
+            accounts_genesis_path: dir.as_ref().join("accounts.json"),
+            bank_genesis_path: dir.as_ref().join("bank.json"),
+            sequencer_genesis_path: dir.as_ref().join("sequencer_registry.json"),
+        }
+    }
 }
 
 /// Creates genesis configuration.
