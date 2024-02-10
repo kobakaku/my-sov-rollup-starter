@@ -123,3 +123,5 @@ impl RollupBlueprint for MockRollup {
         ProverStorageManager::new(storage_config)
     }
 }
+
+impl sov_modules_rollup_blueprint::WalletBlueprint for MockRollup {}
