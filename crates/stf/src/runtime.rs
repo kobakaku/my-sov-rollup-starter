@@ -17,6 +17,8 @@ pub use sov_sequencer_registry::{SequencerRegistryRpcImpl, SequencerRegistryRpcS
 use crate::genesis_config::get_genesis_config;
 #[cfg(feature = "native")]
 use crate::genesis_config::GenesisPaths;
+#[cfg(feature = "native")]
+use sov_nft::query::{NonFungibleTokenRpcImpl, NonFungibleTokenRpcServer};
 
 /// Runtime lifecycle:
 ///
@@ -44,6 +46,8 @@ pub struct Runtime<C: Context, Da: DaSpec> {
     pub bank: sov_bank::Bank<C>,
     /// The Sequencer Registry module.
     pub sequencer_registry: sov_sequencer_registry::SequencerRegistry<C, Da>,
+    /// The NFT module.
+    pub nft: sov_nft::NonFungibleToken<C>,
 }
 
 impl<C, Da> sov_modules_stf_blueprint::Runtime<C, Da> for Runtime<C, Da>

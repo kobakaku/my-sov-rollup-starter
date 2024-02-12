@@ -4021,6 +4021,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "sov-nft"
+version = "0.1.0"
+dependencies = [
+ "anyhow",
+ "borsh",
+ "jsonrpsee",
+ "serde",
+ "serde_json",
+ "sov-modules-api",
+ "sov-state",
+]
+
+[[package]]
 name = "sov-prover-storage-manager"
 version = "0.3.0"
 source = "git+https://github.com/Sovereign-Labs/sovereign-sdk.git?rev=13e4077c329ff14954b32e3180d43a6d86fa3172#13e4077c329ff14954b32e3180d43a6d86fa3172"
@@ -4238,6 +4251,7 @@ dependencies = [
  "sov-mock-da",
  "sov-modules-api",
  "sov-modules-stf-blueprint",
+ "sov-nft",
  "sov-rollup-interface",
  "sov-sequencer",
  "sov-sequencer-registry",

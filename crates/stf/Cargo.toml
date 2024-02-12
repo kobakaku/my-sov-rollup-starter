@@ -16,6 +16,7 @@ sov-modules-stf-blueprint = { workspace = true }
 sov-stf-runner = { workspace = true }
 sov-sequencer = { workspace = true, optional = true }
 sov-rollup-interface = { workspace = true }
+sov-nft = { workspace = true }
 
 serde = { workspace = true, features = ["derive", "rc"] }
 serde_json = { workspace = true, optional = true }

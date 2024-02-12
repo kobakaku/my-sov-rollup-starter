@@ -1,6 +1,7 @@
 use anyhow::{bail, Context as _, Error as AError};
 use sov_accounts::AccountConfig;
 use sov_bank::BankConfig;
+use sov_nft::genesis::NonFungibleTokenConfig;
 use sov_sequencer_registry::SequencerConfig;
 use sov_stf_runner::read_json_file;
 use std::path::{Path, PathBuf};
@@ -18,6 +19,8 @@ pub struct GenesisPaths {
     pub bank_genesis_path: PathBuf,
     /// Sequencer Registry genesis path.
     pub sequencer_genesis_path: PathBuf,
+    /// NFT genesis path.
+    pub nft_genesis_path: PathBuf,
 }
 
 impl GenesisPaths {
@@ -26,6 +29,7 @@ impl GenesisPaths {
             accounts_genesis_path: dir.as_ref().join("accounts.json"),
             bank_genesis_path: dir.as_ref().join("bank.json"),
             sequencer_genesis_path: dir.as_ref().join("sequencer_registry.json"),
+            nft_genesis_path: dir.as_ref().join("nft.json"),
         }
     }
 }
@@ -80,10 +84,12 @@ where
     let bank_config: BankConfig<C> = read_json_file(&genesis_paths.bank_genesis_path)?;
     let sequencer_registry_config: SequencerConfig<C, Da> =
         read_json_file(&genesis_paths.sequencer_genesis_path)?;
+    let nft_config: NonFungibleTokenConfig = read_json_file(&genesis_paths.nft_genesis_path)?;
 
     Ok(GenesisConfig::new(
         accounts_config,
         bank_config,
         sequencer_registry_config,
+        nft_config,
     ))
 }

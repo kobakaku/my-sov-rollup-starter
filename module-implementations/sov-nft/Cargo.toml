@@ -1,0 +1,20 @@
+[package]
+name = "sov-nft"
+resolver = "2"
+version = { workspace = true }
+edition = { workspace = true }
+authors = { workspace = true }
+
+[dependencies]
+sov-modules-api = { workspace = true }
+sov-state = { workspace = true }
+
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+borsh = { workspace = true, features = ["rc", "bytes"] }
+jsonrpsee = { workspace = true, optional = true }
+
+[features]
+default = ["native"]
+native = ["sov-state/native", "sov-modules-api/native", "jsonrpsee"]

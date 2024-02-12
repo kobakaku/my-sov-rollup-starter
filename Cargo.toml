@@ -3,6 +3,7 @@ resolver = "2"
 members = [
     "crates/rollup",
     "crates/stf",
+    "module-implementations/sov-nft"
 ]
 
 [workspace.package]
@@ -28,6 +29,7 @@ sov-modules-stf-blueprint = { git = "https://github.com/Sovereign-Labs/sovereign
 sov-accounts = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 sov-bank = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 sov-sequencer-registry = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-nft = { path = "module-implementations/sov-nft" }
 # Rollup Interface
 sov-rollup-interface = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 
