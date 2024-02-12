@@ -8,6 +8,7 @@ authors = { workspace = true }
 [dependencies]
 # Adapters
 sov-mock-da = { workspace = true, features = ["native"], optional = true }
+sov-celestia-adapter = { workspace = true, features = ["native"], optional=true }
 sov-risc0-adapter = { workspace = true, features = ["native"] }
 # Full Node
 sov-prover-storage-manager = { workspace = true }
@@ -37,7 +38,7 @@ jsonrpsee = { workspace = true }
 [features]
 default = ["mock_da"]
 mock_da = ["sov-mock-da"]
-celestia_da = []
+celestia_da = ["sov-celestia-adapter"]
 
 [[bin]]
 name = "node"

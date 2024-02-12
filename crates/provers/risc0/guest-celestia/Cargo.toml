@@ -1,0 +1,11 @@
+[package]
+name = "guest-celestia-starter"
+resolver = "2"
+version = "0.1.0"
+edition = "2021"
+
+[workspace]
+
+
+[dependencies]
+risc0-zkvm = { version = "0.19", default-features = false, features = ["std"] }
