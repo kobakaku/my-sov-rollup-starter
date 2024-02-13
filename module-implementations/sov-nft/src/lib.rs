@@ -28,12 +28,9 @@ impl<C: sov_modules_api::Context> Module for NonFungibleToken<C> {
     type CallMessage = CallMessage<C>;
     type Event = ();
 
-    fn genesis(
-        &self,
-        _config: &Self::Config,
-        _working_set: &mut WorkingSet<C>,
-    ) -> Result<(), Error> {
-        Ok(())
+    // Rollupのデプロイ時に一度だけよびだされる
+    fn genesis(&self, config: &Self::Config, working_set: &mut WorkingSet<C>) -> Result<(), Error> {
+        Ok(self.init_module(config, working_set)?)
     }
 
     fn call(
