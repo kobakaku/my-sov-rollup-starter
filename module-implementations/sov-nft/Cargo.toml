@@ -8,6 +8,8 @@ authors = { workspace = true }
 [dependencies]
 sov-modules-api = { workspace = true }
 sov-state = { workspace = true }
+sov-modules-macros = { workspace = true }
+schemars = { workspace = true, optional = true }
 
 serde = { workspace = true }
 serde_json = { workspace = true }
@@ -17,4 +19,4 @@ jsonrpsee = { workspace = true, optional = true }
 
 [features]
 default = ["native"]
-native = ["sov-state/native", "sov-modules-api/native", "jsonrpsee"]
+native = ["sov-state/native", "sov-modules-api/native", "jsonrpsee", "schemars"]

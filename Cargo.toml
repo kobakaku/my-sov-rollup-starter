@@ -29,6 +29,7 @@ sov-modules-stf-blueprint = { git = "https://github.com/Sovereign-Labs/sovereign
 sov-accounts = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 sov-bank = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 sov-sequencer-registry = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-modules-macros = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 sov-nft = { path = "module-implementations/sov-nft" }
 # Rollup Interface
 sov-rollup-interface = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
@@ -43,6 +44,7 @@ tokio = { version = "1", features = ["full"] }
 async-trait = "0.1.71"
 jsonrpsee = { version = "0.20.1", features = ["jsonrpsee-types"] }
 borsh = { version = "0.10.3", features = ["rc", "bytes"] }
+schemars = { version = "0.8.16", features = ["derive"] }
 
 risc0-build = "0.19"
 
