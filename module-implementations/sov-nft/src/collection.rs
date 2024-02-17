@@ -16,8 +16,8 @@ impl<C: Context> CollectionState<C> {
         match self {
             CollectionState::Frozen(collection) => bail!(
                 "Collection with name: {} , creator: {} is frozen",
-                collection.get_name(),
-                collection.get_creator()
+                collection.collection_name,
+                collection.creator
             ),
             CollectionState::Mutable(collection) => Ok(collection.clone()),
         }
@@ -26,11 +26,11 @@ impl<C: Context> CollectionState<C> {
 
 #[derive(borsh::BorshDeserialize, borsh::BorshSerialize, Debug, PartialEq, Clone)]
 pub struct Collection<C: Context> {
-    collection_name: String,
-    creator: CreatorAddress<C>,
-    frozen: bool,
-    supply: u64,
-    collection_uri: String,
+    pub collection_name: String,
+    pub creator: CreatorAddress<C>,
+    pub frozen: bool,
+    pub supply: u64,
+    pub collection_uri: String,
 }
 
 impl<C: Context> Collection<C> {
@@ -74,7 +74,7 @@ impl<C: Context> Collection<C> {
         let collection_address = get_collection_address(collection_name, creator.as_ref());
         let collection = collections.get(&collection_address, working_set);
         if let Some(collection) = collection {
-            if collection.is_frozen() {
+            if collection.frozen {
                 Ok((collection_address, CollectionState::Frozen(collection)))
             } else {
                 Ok((
@@ -90,18 +90,6 @@ impl<C: Context> Collection<C> {
                 )
             })
         }
-    }
-
-    pub(crate) fn is_frozen(&self) -> bool {
-        self.frozen
-    }
-
-    pub(crate) fn get_name(&self) -> &str {
-        &self.collection_name
-    }
-
-    pub(crate) fn get_creator(&self) -> &CreatorAddress<C> {
-        &self.creator
     }
 }
 
