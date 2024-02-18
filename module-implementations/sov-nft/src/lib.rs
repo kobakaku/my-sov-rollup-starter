@@ -90,7 +90,6 @@ impl<C: sov_modules_api::Context> Module for NonFungibleToken<C> {
                 working_set,
             ),
             CallMessage::TransferNft {
-                // collection_nameじゃなくてよい？
                 collection_address,
                 token_id,
                 to,
@@ -99,9 +98,6 @@ impl<C: sov_modules_api::Context> Module for NonFungibleToken<C> {
                 collection_name,
                 token_id,
             } => self.burn_nft(&collection_name, &token_id, context, working_set),
-            // CallM&essage::Mint { id } => self.mint(id, context, working_set),
-            // CallMessage::Transfer { to, id } => self.transfer(id, to, context, working_set),
-            // CallMessage::Burn { id } => self.burn(id, context, working_set),
         };
         Ok(call_result?)
     }

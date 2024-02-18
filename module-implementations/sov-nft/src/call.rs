@@ -81,6 +81,10 @@ impl<C: sov_modules_api::Context> NonFungibleToken<C> {
         )?;
         self.collections
             .set(&collection_address, &collection, working_set);
+        working_set.add_event(
+            "Create Collection",
+            &format!("A collection with collection_address {collection_address} was created"),
+        );
         Ok(CallResponse::default())
     }
 
@@ -101,9 +105,14 @@ impl<C: sov_modules_api::Context> NonFungibleToken<C> {
         collection.set_collection_uri(collection_uri);
         self.collections
             .set(&collection_address, collection.inner(), working_set);
+        working_set.add_event(
+            "Update Collection",
+            &format!("A collection with collection_address {collection_address} was updated"),
+        );
         Ok(CallResponse::default())
     }
 
+    // TODO
     pub(crate) fn freeze_collection(
         &self,
         collection_name: &str,
@@ -113,6 +122,7 @@ impl<C: sov_modules_api::Context> NonFungibleToken<C> {
         Ok(CallResponse::default())
     }
 
+    // TODO
     pub(crate) fn mint_nft(
         &self,
         collection_name: &str,
@@ -126,6 +136,7 @@ impl<C: sov_modules_api::Context> NonFungibleToken<C> {
         Ok(CallResponse::default())
     }
 
+    // TODO
     pub(crate) fn update_nft(
         &self,
         collection_name: &str,
@@ -138,6 +149,7 @@ impl<C: sov_modules_api::Context> NonFungibleToken<C> {
         Ok(CallResponse::default())
     }
 
+    // TODO
     pub(crate) fn transfer_nft(
         &self,
         collection_address: &CollectionAddress<C>,
@@ -149,6 +161,7 @@ impl<C: sov_modules_api::Context> NonFungibleToken<C> {
         Ok(CallResponse::default())
     }
 
+    // TODO
     pub(crate) fn burn_nft(
         &self,
         collection_name: &str,
@@ -156,67 +169,6 @@ impl<C: sov_modules_api::Context> NonFungibleToken<C> {
         context: &C,
         working_set: &mut WorkingSet<C>,
     ) -> anyhow::Result<CallResponse> {
-        Ok(CallResponse::default())
-    }
-
-    pub(crate) fn mint(
-        &self,
-        id: u64,
-        context: &C,
-        working_set: &mut WorkingSet<C>,
-    ) -> anyhow::Result<CallResponse> {
-        if self.owners.get(&id, working_set).is_some() {
-            bail!("Token with id {} already exists", id);
-        }
-
-        self.owners.set(&id, context.sender(), working_set);
-
-        working_set.add_event("NFT mint", &format!("A token with id {id} was minted"));
-        Ok(CallResponse::default())
-    }
-
-    pub(crate) fn transfer(
-        &self,
-        id: u64,
-        to: C::Address,
-        context: &C,
-        working_set: &mut WorkingSet<C>,
-    ) -> anyhow::Result<CallResponse> {
-        let token_owner = match self.owners.get(&id, working_set) {
-            None => {
-                anyhow::bail!("Token with id {} does not exist", id);
-            }
-            Some(owner) => owner,
-        };
-        if &token_owner != context.sender() {
-            anyhow::bail!("Only token owner can transfer token");
-        }
-        self.owners.set(&id, &to, working_set);
-        working_set.add_event(
-            "NFT transfer",
-            &format!("A token with id {id} was transferred"),
-        );
-        Ok(CallResponse::default())
-    }
-
-    pub(crate) fn burn(
-        &self,
-        id: u64,
-        context: &C,
-        working_set: &mut WorkingSet<C>,
-    ) -> anyhow::Result<CallResponse> {
-        let token_owner = match self.owners.get(&id, working_set) {
-            None => {
-                anyhow::bail!("Token with id {} does not exist", id);
-            }
-            Some(owner) => owner,
-        };
-        if &token_owner != context.sender() {
-            anyhow::bail!("Only token owner can burn token");
-        }
-        self.owners.remove(&id, working_set);
-
-        working_set.add_event("NFT burn", &format!("A token with id {id} was burned"));
         Ok(CallResponse::default())
     }
 }
