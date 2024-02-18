@@ -22,7 +22,7 @@ serde = { workspace = true, features = ["derive", "rc"] }
 serde_json = { workspace = true, optional = true }
 clap = { workspace = true, features = ["derive"], optional = true }
 borsh = { workspace = true, features = ["rc", "bytes"] }
-jsonrpsee = { workspace = true, features = ["jsonrpsee-types"], optional = true }
+jsonrpsee = { workspace = true, features = ["http-client", "server"], optional = true }
 anyhow = { workspace = true }
 tracing = { workspace = true }
 
@@ -34,6 +34,7 @@ native = [
     "sov-bank/native",
     "sov-sequencer-registry/native",
     "sov-mock-da/native",
+    "sov-nft/native",
     "sov-modules-stf-blueprint/native",
     "sov-stf-runner/native",
     "serde_json",

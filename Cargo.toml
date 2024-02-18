@@ -3,7 +3,6 @@ resolver = "2"
 members = [
     "crates/rollup",
     "crates/stf",
-    "module-implementations/sov-nft"
 ]
 
 [workspace.package]
@@ -12,6 +11,7 @@ edition = "2021"
 authors = ["kobakaku"]
 
 [workspace.dependencies]
+### sovereign-sdk
 # Adapters
 sov-mock-da = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 sov-celestia-adapter = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
@@ -30,9 +30,12 @@ sov-accounts = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", re
 sov-bank = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 sov-sequencer-registry = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 sov-modules-macros = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-nft = { path = "module-implementations/sov-nft" }
 # Rollup Interface
 sov-rollup-interface = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+
+### sovereign-rollup
+# Module System
+sov-nft = { git = "https://github.com/kobakaku/sovereign-rollup.git", rev = "6630737722473534065eda125f30ac06185d086d" }
 
 serde = { version = "1.0.192", features = ["derive", "rc"] }
 serde_json = { version = "1.0" }
