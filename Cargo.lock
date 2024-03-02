@@ -3767,6 +3767,23 @@ dependencies = [
 
 [[package]]
 name = "sov-bank"
+version = "0.1.0"
+source = "git+https://github.com/kobakaku/sovereign-rollup.git?rev=29e6c14#29e6c14a680854f0bba9213296bd0bcd3638b67f"
+dependencies = [
+ "anyhow",
+ "borsh",
+ "jsonrpsee",
+ "schemars",
+ "serde",
+ "serde_json",
+ "sov-modules-api",
+ "sov-prover-storage-manager",
+ "sov-state",
+ "tempfile",
+]
+
+[[package]]
+name = "sov-bank"
 version = "0.3.0"
 source = "git+https://github.com/Sovereign-Labs/sovereign-sdk.git?rev=13e4077c329ff14954b32e3180d43a6d86fa3172#13e4077c329ff14954b32e3180d43a6d86fa3172"
 dependencies = [
@@ -3860,7 +3877,7 @@ dependencies = [
  "serde",
  "serde_json",
  "sov-accounts",
- "sov-bank",
+ "sov-bank 0.3.0",
  "sov-modules-api",
 ]
 
@@ -4023,7 +4040,7 @@ dependencies = [
 [[package]]
 name = "sov-nft"
 version = "0.1.0"
-source = "git+https://github.com/kobakaku/sovereign-rollup.git?rev=6630737722473534065eda125f30ac06185d086d#6630737722473534065eda125f30ac06185d086d"
+source = "git+https://github.com/kobakaku/sovereign-rollup.git?rev=29e6c14#29e6c14a680854f0bba9213296bd0bcd3638b67f"
 dependencies = [
  "anyhow",
  "borsh",
@@ -4033,7 +4050,9 @@ dependencies = [
  "serde_json",
  "sov-modules-api",
  "sov-modules-macros",
+ "sov-prover-storage-manager",
  "sov-state",
+ "tempfile",
 ]
 
 [[package]]
@@ -4154,7 +4173,7 @@ dependencies = [
  "schemars",
  "serde",
  "serde_json",
- "sov-bank",
+ "sov-bank 0.3.0",
  "sov-modules-api",
  "sov-state",
 ]
@@ -4250,7 +4269,7 @@ dependencies = [
  "serde",
  "serde_json",
  "sov-accounts",
- "sov-bank",
+ "sov-bank 0.1.0",
  "sov-mock-da",
  "sov-modules-api",
  "sov-modules-stf-blueprint",

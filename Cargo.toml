@@ -27,7 +27,6 @@ sov-modules-api = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git",
 sov-state = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 sov-modules-stf-blueprint = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 sov-accounts = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-bank = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 sov-sequencer-registry = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 sov-modules-macros = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
 # Rollup Interface
@@ -35,7 +34,8 @@ sov-rollup-interface = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.
 
 ### sovereign-rollup
 # Module System
-sov-nft = { git = "https://github.com/kobakaku/sovereign-rollup.git", rev = "6630737722473534065eda125f30ac06185d086d" }
+sov-nft = { git = "https://github.com/kobakaku/sovereign-rollup.git", rev = "29e6c14" }
+sov-bank = { git = "https://github.com/kobakaku/sovereign-rollup.git", rev = "29e6c14" }
 
 serde = { version = "1.0.192", features = ["derive", "rc"] }
 serde_json = { version = "1.0" }
@@ -48,6 +48,7 @@ async-trait = "0.1.71"
 jsonrpsee = { version = "0.20.1", features = ["jsonrpsee-types"] }
 borsh = { version = "0.10.3", features = ["rc", "bytes"] }
 schemars = { version = "0.8.16", features = ["derive"] }
+tempfile = "3.8"
 
 risc0-build = "0.19"
 
