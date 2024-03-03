@@ -88,21 +88,40 @@ endif
 wait-ten-seconds:
 	sleep 10
 
-set-rpc-url: build-sov-cli
+get-wallet-command-path:
+	echo $(SOV_CLI_REL_PATH)
+
+set-rpc-url:
 	$(SOV_CLI_REL_PATH) rpc set-url http://127.0.0.1:12345
 
-import-keys: build-sov-cli
-	$(SOV_CLI_REL_PATH) keys import --nickname DANGER__DO_NOT_USE_WITH_REAL_MONEY --path ../../test-data/keys/token_deployer_private_key.json
+import-keys:
+	$(SOV_CLI_REL_PATH) keys import --nickname kobakaku --path $(PROJECT_ROOT)/test-data/keys/kobakaku_private_key.json
+
+get-keys:
+	$(SOV_CLI_REL_PATH) keys list
+
+test-generate-create-token-tx:
+	$(SOV_CLI_REL_PATH) transactions import from-file bank --chain-id 0 --path $(PROJECT_ROOT)/test-data/requests/create_token.json
 
 
-test-generate-create-token-tx: build-sov-cli
-	$(SOV_CLI_REL_PATH) transactions import from-file bank --chain-id 0 --path ../../test-data/requests/create_token.json
+test-transfer-token-tx: 
+	$(SOV_CLI_REL_PATH) transactions import from-file bank --chain-id 0 --path $(PROJECT_ROOT)/test-data/requests/transfer.json
+
+test-submit-batch: 
+	$(SOV_CLI_REL_PATH) rpc submit-batch by-nickname kobakaku
 
 
-test-create-token: set-rpc-url test-generate-create-token-tx import-keys
-	$(SOV_CLI_REL_PATH) rpc submit-batch by-nickname DANGER__DO_NOT_USE_WITH_REAL_MONEY
+### Curl Query (BANK) ###
+bank-supply-of: 
+	curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"bank_supplyOf","params":{"token_address":"sov1zsnx7n2wjvtkr0ttscfgt06pjca3v2e6stxeu49qwynavmk7a8xqlxkkjp"},"id":1}' http://127.0.0.1:12345 | jq
 
+bank-balance-of: 
+	curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"bank_balanceOf","params":{"user_address":"sov1l6n2cku82yfqld30lanm2nfw43n2auc8clw7r5u5m6s7p8jrm4zqrr8r94" ,"token_address":"sov1zsnx7n2wjvtkr0ttscfgt06pjca3v2e6stxeu49qwynavmk7a8xqlxkkjp"},"id":1}' http://127.0.0.1:12345 | jq
 
-test-bank-supply-of: 
-	curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"bank_supplyOf","params":{"token_address":"sov1zdwj8thgev2u3yyrrlekmvtsz4av4tp3m7dm5mx5peejnesga27svq9m72"},"id":1}' http://127.0.0.1:12345
+### Curl Query (NFT) ###
 
+nft-get-collection: 
+	curl -X POST -H "Content-Type: application/json" -d '{"jsonrpc":"2.0","method":"nft_getCollection","params":{"creator": "sov1fh7nrfw5y7ung8tg7gpuheeex77plyahnwpe988gnkhcnng2m33s5c9wzm", "collection_name": "sample collection"},"id":1}' http://127.0.0.1:12345 | jq
+
+nft-get-collection-address: 
+	curl -X POST -H "Content-Type: application/json" --data '{"jsonrpc":"2.0","method":"nft_getCollectionAddress","params":["sov1fh7nrfw5y7ung8tg7gpuheeex77plyahnwpe988gnkhcnng2m33s5c9wzm","test collection"],"id":1}' http://127.0.0.1:12345

@@ -13,29 +13,30 @@ authors = ["kobakaku"]
 [workspace.dependencies]
 ### sovereign-sdk
 # Adapters
-sov-mock-da = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-celestia-adapter = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-risc0-adapter = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-mock-da = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
+sov-celestia-adapter = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
+sov-risc0-adapter = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
 # Full Node
-sov-prover-storage-manager = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-stf-runner = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-db = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-sequencer = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-prover-storage-manager = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
+sov-stf-runner = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
+sov-db = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
+sov-sequencer = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
 # Module System
-sov-modules-rollup-blueprint = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-modules-api = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-state = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-modules-stf-blueprint = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-accounts = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-sequencer-registry = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
-sov-modules-macros = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-modules-rollup-blueprint = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
+sov-modules-api = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
+sov-state = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
+sov-modules-stf-blueprint = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
+sov-accounts = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
+sov-sequencer-registry = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
+sov-modules-macros = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
+sov-bank = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
 # Rollup Interface
-sov-rollup-interface = { git = "https://github.com/Sovereign-Labs/sovereign-sdk.git", rev = "13e4077c329ff14954b32e3180d43a6d86fa3172" }
+sov-rollup-interface = { git = "https://github.com/kobakaku/sovereign-sdk", rev = "669d5d33f6ec5c057e5ae4fd6441d3e79b29914d" }
 
 ### sovereign-rollup
 # Module System
-sov-nft = { git = "https://github.com/kobakaku/sovereign-rollup.git", rev = "29e6c14" }
-sov-bank = { git = "https://github.com/kobakaku/sovereign-rollup.git", rev = "29e6c14" }
+sov-nft = { git = "https://github.com/kobakaku/sovereign-rollup.git", rev = "f921a3dad211fd4add4a138512902da453a9d07d" }
+# sov-bank = { git = "https://github.com/kobakaku/sovereign-rollup.git", rev = "f921a3dad211fd4add4a138512902da453a9d07d" }
 
 serde = { version = "1.0.192", features = ["derive", "rc"] }
 serde_json = { version = "1.0" }
