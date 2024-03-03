@@ -22,7 +22,7 @@ sov-modules-stf-blueprint = { workspace = true, features = ["native"] }
 # Rollup Interface
 sov-rollup-interface = { workspace = true }
 
-risc0-starter = { path = "../provers/risc0" }
+# risc0-starter = { path = "../provers/risc0" }
 stf-starter = { path = "../stf", features = ["native"] }
 
 serde = { workspace = true }

@@ -15,6 +15,8 @@ use sov_state::{config::Config as StorageConfig, DefaultStorageSpec, Storage, Zk
 use sov_stf_runner::{ParallelProverService, RollupConfig, RollupProverConfig};
 use stf_starter::runtime::Runtime;
 
+pub const MOCK_DA_ELF: &[u8] = &[];
+
 pub struct MockRollup {}
 
 #[async_trait]
@@ -96,7 +98,7 @@ impl RollupBlueprint for MockRollup {
         rollup_config: &RollupConfig<Self::DaConfig>,
         _da_service: &Self::DaService,
     ) -> Self::ProverService {
-        let vm = Risc0Host::new(risc0_starter::MOCK_DA_ELF);
+        let vm = Risc0Host::new(MOCK_DA_ELF);
         let zk_stf = StfBlueprint::new();
         let zk_storage = ZkStorage::new();
         let da_verifier = Default::default();
